@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainScreen_admin</class>
+ <widget class="QMainWindow" name="MainScreen_admin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Admin</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>751</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="adm_changePassword">
+         <property name="text">
+          <string>Change password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="restrictButton">
+         <property name="text">
+          <string>Restrict user</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addUserButton">
+         <property name="text">
+          <string>Add user</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="forbidUserButton">
+         <property name="text">
+          <string>Forbid user</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exitButton">
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="listUsersButton">
+         <property name="text">
+          <string>List Users</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuReference">
+    <property name="title">
+     <string>Reference</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuReference"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionChange_password">
+   <property name="text">
+    <string>Change password</string>
+   </property>
+  </action>
+  <action name="actionRestrict_user">
+   <property name="text">
+    <string>Restrict user</string>
+   </property>
+  </action>
+  <action name="actionForbid_user">
+   <property name="text">
+    <string>Forbid user</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAdd_User">
+   <property name="text">
+    <string>Add User</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
