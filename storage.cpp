@@ -7,6 +7,7 @@ Storage::Storage()
     QString storageName = QCoreApplication::applicationDirPath();
     storageName.append("/admin_file.json");
     this->database.setFileName(storageName);
+    qDebug() << this->database.fileName();
     if(!this->database.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         this->database.open(QIODevice::WriteOnly);
@@ -17,7 +18,9 @@ Storage::Storage()
             {"restriction", false}
         };
         QJsonDocument docum(admin);
+        this->database.write("[");
         this->database.write(docum.toJson());
+        this->database.write("]");
         this->database.close();
     } else {
         this->database.close();
@@ -31,6 +34,7 @@ QJsonArray Storage::getAllUsers()
     QString data = this->database.readAll();
     this->database.close();
     QJsonDocument d = QJsonDocument::fromJson(data.toUtf8());
+
     return d.array();
 }
 
@@ -105,7 +109,8 @@ bool Storage::createNewUser(const QString &username)
         {"blocked", false},
         {"restriction", false}
     };
-    dataList.append(QJsonValue::QJsonValue(user));
+    QJsonValue val = QJsonValue(user);
+    dataList.append(val);
     updateStorage(dataList);
     emit messageSignal("User added");
     return true;

@@ -25,6 +25,7 @@ void LoginWindow::on_loginButton_clicked()
     QString username = ui->usernameField->text();
     QString password = ui->passwordField->text();
     QJsonArray dataList = this->stor->getAllUsers();
+    qDebug() << dataList;
     for(QJsonArray::iterator it = dataList.begin(); it != dataList.end(); ++it)
     {
         const QJsonValue &val = *it;
@@ -56,6 +57,11 @@ void LoginWindow::on_loginButton_clicked()
             this->close();
         }
     }
+}
 
-
+void LoginWindow::on_actionAbout_triggered()
+{
+    ab = new About();
+    ab->setModal(true);
+    ab->show();
 }

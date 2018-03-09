@@ -5,6 +5,7 @@
 #include "storage.h"
 #include "mainscreen_admin.h"
 #include "mainscreen_user.h"
+#include "about.h"
 #include <QDialog>
 
 namespace Ui {
@@ -25,10 +26,13 @@ private:
     int counter;
     MainScreen_admin *adm;
     MainScreen_user *usr;
+    About *ab;
+
 
 
 private slots:
     void on_loginButton_clicked();
+    void on_actionAbout_triggered();
 };
 
 #endif // MAINWINDOW_H
