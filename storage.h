@@ -20,7 +20,10 @@ public slots:
 private:
     QFile database;
 signals:
-    void messageSignal(const QString&);
+    void np_messageSignal(const QString&);
+    void ru_messageSignal(const QString&);
+    void um_messageSignal(const QString&);
+    void nu_messageSignal(const QString&);
 };
 
 #endif // STORAGE_H

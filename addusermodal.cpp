@@ -6,7 +6,7 @@ AddUserModal::AddUserModal(QWidget *parent, Storage *stor) :
     ui(new Ui::AddUserModal)
 {
     this->stor = stor;
-    connect(this->stor, SIGNAL(messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)));
+    connect(this->stor, SIGNAL(nu_messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)), Qt::UniqueConnection);
     ui->setupUi(this);
 }
 

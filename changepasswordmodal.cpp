@@ -8,7 +8,7 @@ ChangePasswordModal::ChangePasswordModal(QWidget *parent, const QString& usernam
     this->restricted = restricted;
     this->stor = stor;
     this->username = username;
-    connect(this->stor, SIGNAL(messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)));
+    connect(this->stor, SIGNAL(np_messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)), Qt::UniqueConnection);
     ui->setupUi(this);
 }
 

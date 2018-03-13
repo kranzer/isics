@@ -5,9 +5,8 @@ ChangeUserModeModal::ChangeUserModeModal(QWidget *parent, Storage *stor) :
     QDialog(parent),
     ui(new Ui::ChangeUserModeModal)
 {
-
     this->stor = stor;
-    connect(this->stor, SIGNAL(messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)));
+    connect(this->stor, SIGNAL(um_messageSignal(const QString&)), this, SLOT(showMessageBox(const QString&)), Qt::UniqueConnection);
     ui->setupUi(this);
 }
 

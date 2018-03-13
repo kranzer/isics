@@ -30,7 +30,7 @@ void MainScreen_user::on_changePasswordButton_clicked(){
 
 void MainScreen_user::on_actionAbout_triggered()
 {
-    ab = new About();
+    ab = new About(this);
     ab->setModal(true);
     ab->show();
 }

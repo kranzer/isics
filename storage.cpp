@@ -60,7 +60,7 @@ bool Storage::setNewPassword(const QString &username, const QString &oldPassword
     }
     if(!found)
     {
-        emit messageSignal("No such user");
+        emit np_messageSignal("No such user");
         return false;
     }
     if(user["password"] == oldPassword)
@@ -74,7 +74,7 @@ bool Storage::setNewPassword(const QString &username, const QString &oldPassword
                     updated = QJsonObject::fromVariantMap(user);
                     success = true;
                 } else {
-                    emit messageSignal("Password doesn't match restriction");
+                    emit np_messageSignal("Password doesn't match restriction");
                 }
             } else {
                 user["password"] = newPassword;
@@ -83,18 +83,18 @@ bool Storage::setNewPassword(const QString &username, const QString &oldPassword
             }
         }
         else {
-            emit messageSignal("Password and it's confirmation don't match");
+            emit np_messageSignal("Password and it's confirmation don't match");
         }
     }
     else {
-       emit messageSignal("Wrong password");
+       emit np_messageSignal("Wrong password");
     }
     if(success)
     {
         dataList << updated;
         qDebug() << dataList;
         updateStorage(dataList);
-        emit messageSignal("Password changed");
+        emit np_messageSignal("Password changed");
         return true;
     }
     return false;
@@ -112,7 +112,7 @@ bool Storage::createNewUser(const QString &username)
     QJsonValue val = QJsonValue(user);
     dataList.append(val);
     updateStorage(dataList);
-    emit messageSignal("User added");
+    emit nu_messageSignal("User added");
     return true;
 }
 
@@ -141,14 +141,14 @@ bool Storage::setRestrictions(const QString &username, bool restricted){
         updated = QJsonObject::fromVariantMap(user);
         success = true;
     } else {
-        emit messageSignal("No such user");
+        emit ru_messageSignal("No such user");
     }
     if(success)
     {
         dataList << updated;
         qDebug() << dataList;
         updateStorage(dataList);
-        emit messageSignal("User restricted");
+        emit ru_messageSignal("User restricted");
         return true;
     }
     return false;
@@ -180,14 +180,14 @@ bool Storage::changeUserMode(const QString &username, bool blocked)
         updated = QJsonObject::fromVariantMap(user);
         success = true;
     }else {
-        emit messageSignal("No such user");
+        emit um_messageSignal("No such user");
     }
     if(success)
     {
         dataList << updated;
         qDebug() << dataList;
         updateStorage(dataList);
-        emit messageSignal("User blocked");
+        emit um_messageSignal("User blocked");
         return true;
     }
     return false;
